@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -98,13 +98,67 @@
   .btn-ghost { border-color: var(--line); color: var(--text-dark); background: var(--panel-card); }
   .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
-  .hero-box {
-    background: var(--panel-card); border: 1px solid var(--line); border-radius: 6px;
-    padding: 36px; text-align: center; border-top: 3px solid var(--gold);
-    box-shadow: var(--shadow-sm);
+  /* Poster Lutero (Hero Box) */
+  .luther-poster {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1.35;
+    background-color: #121b24;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    user-select: none;
+    border: 1px solid var(--line);
   }
-  .hero-box .year { font-family: 'Fraunces', serif; font-size: 64px; color: var(--gold); line-height: 1; }
-  .hero-box .sub { color: var(--text-muted); font-size: 15px; margin-top: 8px; }
+
+  .luther-img {
+    position: absolute;
+    top: 0;
+    left: -22%;
+    width: 145%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.15) brightness(0.92) saturate(0.9);
+    z-index: 1;
+  }
+
+  .dark-fade-layer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(14, 23, 31, 0.15) 0%,
+      rgba(14, 23, 31, 0.45) 30%,
+      rgba(14, 23, 31, 0.9) 60%,
+      #0e171f 88%
+    );
+    z-index: 2;
+  }
+
+  .text-layer {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding-right: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .year-1517 {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: clamp(5.5rem, 18vw, 8rem);
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    color: #F6F3EC;
+    text-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.95),
+      -3px 2px 12px rgba(8, 14, 20, 0.9);
+    transform: rotate(-0.5deg);
+  }
 
   /* Historia */
   .historia-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
@@ -189,12 +243,8 @@
   }
 
   @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-100% - var(--card-gap)));
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% - var(--card-gap))); }
   }
 
   .reel-card {
@@ -251,9 +301,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .marquee-group {
-      animation-play-state: paused;
-    }
+    .marquee-group { animation-play-state: paused; }
   }
 
   /* Modal de las 5 Solas */
@@ -296,21 +344,8 @@
   .agenda-item .time { font-family: 'Fraunces', serif; font-size: 20px; color: var(--gold); }
   .agenda-item .speaker { display: inline-block; background: var(--panel); color: var(--gold); font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 3px; margin-bottom: 6px; border: 1px solid var(--line); }
 
-  .agenda-break {
-    background: transparent;
-    border-style: dashed;
-    box-shadow: none;
-  }
-  .break-tag {
-    display: inline-block;
-    background: var(--panel);
-    color: var(--text-muted);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 3px;
-    margin-bottom: 4px;
-  }
+  .agenda-break { background: transparent; border-style: dashed; box-shadow: none; }
+  .break-tag { display: inline-block; background: var(--panel); color: var(--text-muted); font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 3px; margin-bottom: 4px; }
 
   /* Registro */
   .registro-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; }
@@ -369,9 +404,13 @@
         </div>
       </div>
 
-      <div class="hero-box">
-        <div class="year">1517</div>
-        <div class="sub">El retorno providencial a la verdad de la Escritura</div>
+      <!-- Poster Lutero 1517 Integrado -->
+      <div class="luther-poster">
+        <img src="image.jpeg" onerror="this.src='image.jpg'; this.onerror=null;" alt="Martín Lutero" class="luther-img">
+        <div class="dark-fade-layer"></div>
+        <div class="text-layer">
+          <h2 class="year-1517">1517</h2>
+        </div>
       </div>
     </div>
   </section>
@@ -411,7 +450,6 @@
         
         <!-- GRUPO 1 -->
         <div class="marquee-group">
-          
           <article class="reel-card" onclick="openModal('scriptura')">
             <div class="card-meta">01 · PILAR</div>
             <h3 class="card-title">Sola Scriptura</h3>
@@ -446,12 +484,10 @@
             <p class="card-desc">Toda honra y alabanza dirigidas únicamente a la fuente divina de toda verdad.</p>
             <span class="click-hint">Ver pasaje bíblico →</span>
           </article>
-
         </div>
 
         <!-- GRUPO 2 (Duplicado para loop infinito) -->
         <div class="marquee-group" aria-hidden="true">
-          
           <article class="reel-card" onclick="openModal('scriptura')">
             <div class="card-meta">01 · PILAR</div>
             <h3 class="card-title">Sola Scriptura</h3>
@@ -486,7 +522,6 @@
             <p class="card-desc">Toda honra y alabanza dirigidas únicamente a la fuente divina de toda verdad.</p>
             <span class="click-hint">Ver pasaje bíblico →</span>
           </article>
-
         </div>
 
       </div>
@@ -514,7 +549,6 @@
       </p>
 
       <div class="agenda-list">
-        
         <div class="agenda-item">
           <div class="time">9:00 a.m.</div>
           <div>
@@ -563,7 +597,6 @@
             </p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
