@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conferencia de la Reforma Protestante | Sábado 31 de Octubre</title>
+<meta name="description" content="Conferencia presencial sobre el legado histórico y teológico de la Reforma Protestante.">
+<meta name="theme-color" content="#FDFBF7">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FDFBF7;
+    --panel: #F7F3EC;
+    --panel-card: #FFFFFF;
+    --text-dark: #2A1A12;
+    --text-muted: #5C4A3E;
+    --gold: #C29B38;
+    --gold-light: #E8D08D;
+    --gold-hover: #A8832A;
+    --line: #E8DFD1;
+    --shadow-sm: 0 4px 12px rgba(42, 26, 18, 0.05);
+    --shadow-lg: 0 12px 32px rgba(42, 26, 18, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-dark);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 96px 0; }
+  @media (max-width: 640px) { section { padding: 60px 0; } }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(253, 251, 247, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    max-width: 1080px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .brand { font-family: 'Fraunces', serif; font-size: 19px; color: var(--gold); font-weight: 600; letter-spacing: 0.02em; }
+  .navlinks { display: flex; gap: 24px; font-size: 14.5px; color: var(--text-muted); font-weight: 500; }
+  .navlinks a:hover { color: var(--gold); }
+
+  /* Hero */
+  .hero {
+    padding: 100px 0 110px;
+    position: relative;
+    background: radial-gradient(circle at 80% 10%, rgba(194, 155, 56, 0.08), transparent 50%);
+  }
+  .hero-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
+  @media (max-width: 820px) { .hero-inner { grid-template-columns: 1fr; } }
+
+  .eyebrow { color: var(--gold); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; display: block; }
+  .hero h1 { font-size: clamp(34px, 5.2vw, 54px); line-height: 1.15; }
+  .hero .lede { margin-top: 20px; color: var(--text-muted); font-size: 18px; max-width: 44ch; }
+
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+  .pill { background: var(--panel); border: 1px solid var(--line); padding: 8px 16px; border-radius: 4px; font-size: 14px; color: var(--text-dark); }
+  .pill strong { color: var(--gold); }
+
+  .cta-row { margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 28px; border-radius: 4px; font-size: 15px; font-weight: 600;
+    transition: all 0.2s ease; border: 1px solid transparent; cursor: pointer;
+  }
+  .btn-primary { background: var(--gold); color: #FFFFFF; }
+  .btn-primary:hover { background: var(--gold-hover); }
+  .btn-ghost { border-color: var(--line); color: var(--text-dark); background: var(--panel-card); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-box {
+    background: var(--panel-card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 36px; text-align: center; border-top: 3px solid var(--gold);
+    box-shadow: var(--shadow-sm);
+  }
+  .hero-box .year { font-family: 'Fraunces', serif; font-size: 64px; color: var(--gold); line-height: 1; }
+  .hero-box .sub { color: var(--text-muted); font-size: 15px; margin-top: 8px; }
+
+  /* Historia */
+  .historia-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  @media (max-width: 780px) { .historia-grid { grid-template-columns: 1fr; } }
+
+  /* 5 Solas - CARRUSEL */
+  .solas-section { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  
+  .carousel-wrapper {
+    position: relative;
+    max-width: 720px;
+    margin: 40px auto 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .carousel-container {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .sola-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .sola-card-carousel {
+    background: var(--panel-card);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--gold);
+    padding: 36px 32px;
+    border-radius: 6px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .sola-card-carousel:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sola-card-carousel h3 {
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .sola-card-carousel .sola-subtitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .sola-card-carousel p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .sola-card-carousel .click-hint {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .carousel-btn {
+    background: var(--panel-card);
+    border: 1px solid var(--line);
+    color: var(--text-dark);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    z-index: 10;
+    position: absolute;
+  }
+
+  .carousel-btn:hover {
+    background: var(--gold);
+    color: #FFFFFF;
+    border-color: var(--gold);
+  }
+
+  .carousel-btn.prev { left: -22px; }
+  .carousel-btn.next { right: -22px; }
+
+  @media (max-width: 768px) {
+    .carousel-btn.prev { left: 4px; }
+    .carousel-btn.next { right: 4px; }
+  }
+
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--line);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .indicator-dot.active {
+    background: var(--gold);
+    width: 28px;
+    border-radius: 6px;
+  }
+
+  /* Modal de las 5 Solas */
+  .modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(42, 26, 18, 0.6); backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    padding: 20px;
+  }
+  .modal-overlay.active { opacity: 1; pointer-events: auto; }
+  .modal-card {
+    background: var(--bg); border: 1px solid var(--line); border-top: 4px solid var(--gold);
+    max-width: 540px; width: 100%; padding: 36px; border-radius: 8px;
+    box-shadow: var(--shadow-lg); transform: translateY(20px); transition: transform 0.3s ease;
+    position: relative;
+  }
+  .modal-overlay.active .modal-card { transform: translateY(0); }
+  .modal-close {
+    position: absolute; top: 16px; right: 20px; background: none; border: none;
+    font-size: 24px; color: var(--text-muted); cursor: pointer;
+  }
+  .modal-card h3 { font-size: 26px; color: var(--gold); margin-bottom: 4px; }
+  .modal-card .modal-subtitle { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .modal-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
+  .modal-card blockquote {
+    margin: 0; padding: 16px 20px; background: var(--panel);
+    border-left: 3px solid var(--gold); font-style: italic; color: var(--text-dark);
+    font-size: 14.5px; border-radius: 0 4px 4px 0;
+  }
+
+  /* Programa */
+  .agenda-list { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+  .agenda-item {
+    background: var(--panel-card); border: 1px solid var(--line); padding: 24px; border-radius: 6px;
+    display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: start;
+    box-shadow: var(--shadow-sm);
+  }
+  @media (max-width: 600px) { .agenda-item { grid-template-columns: 1fr; } }
+  .agenda-item .time { font-family: 'Fraunces', serif; font-size: 20px; color: var(--gold); }
+  .agenda-item .speaker { display: inline-block; background: var(--panel); color: var(--gold); font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 3px; margin-bottom: 6px; border: 1px solid var(--line); }
+
+  .agenda-break {
+    background: transparent;
+    border-style: dashed;
+    box-shadow: none;
+  }
+  .break-tag {
+    display: inline-block;
+    background: var(--panel);
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+  }
+
+  /* Registro */
+  .registro-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; }
+  @media (max-width: 820px) { .registro-grid { grid-template-columns: 1fr; } }
+  form { display: flex; flex-direction: column; gap: 18px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+  .field input, .field select, .field textarea {
+    background: var(--panel-card); border: 1px solid var(--line); border-radius: 4px;
+    padding: 12px 14px; color: var(--text-dark); font-size: 15px; font-family: 'Inter', sans-serif;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold); outline: none; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } }
+
+  /* Footer */
+  footer { padding: 48px 0; text-align: center; color: var(--text-muted); font-size: 14px; border-top: 1px solid var(--line); background: var(--panel); }
+  footer .brand-line { color: var(--text-dark); font-family: 'Fraunces', serif; font-size: 16px; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#inicio">Conferencia Reforma Protestante</a>
+    <nav class="navlinks">
+      <a href="#historia">Historia</a>
+      <a href="#solas">Las 5 Solas</a>
+      <a href="#programa">Programa</a>
+      <a href="#registro">Inscripción</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Conferencia Presencial</span>
+        <h1>Post Tenebras Lux: El legado que transforma vidas</h1>
+        <p class="lede">
+          Acompáñanos a examinar los fundamentos teológicos e históricos de la Reforma del siglo XVI y su impacto permanente en la iglesia actual.
+        </p>
+
+        <div class="meta-pills">
+          <div class="pill">Fecha: <strong>Sábado 31 de Octubre</strong></div>
+          <div class="pill">Horario: <strong>9:00 a.m. a 3:00 p.m.</strong></div>
+          <div class="pill">Lugar: <strong>[EDITAR NOMBRE DE LUGAR / IGLESIA]</strong></div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#registro">Reservar mi lugar</a>
+          <a class="btn btn-ghost" href="#programa">Ver programa</a>
+        </div>
+      </div>
+
+      <div class="hero-box">
+        <div class="year">1517</div>
+        <div class="sub">El retorno providencial a la verdad de la Escritura</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HISTORIA ================= -->
+  <section id="historia">
+    <div class="wrap historia-grid">
+      <div>
+        <span class="eyebrow">Contexto Histórico</span>
+        <h2 style="font-size: 32px; margin-bottom: 16px;">El martillazo que resonó en Europa</h2>
+        <p style="color: var(--text-muted);">
+          El 31 de octubre de 1517, Martín Lutero clavó las 95 tesis en la puerta de la Iglesia del Palacio de Wittenberg. Lo que comenzó como un llamado al debate académico sobre las indulgencias desencadenó un movimiento de renovación espiritual que devolvió la Biblia al pueblo.
+        </p>
+        <p style="color: var(--text-muted);">
+          A través de reformadores como Lutero, Juan Calvino y Ulrico Zwinglio, la iglesia recordó que la salvación es obra soberana de Dios y que la Escritura es la regla suprema de fe y conducta.
+        </p>
+      </div>
+
+      <div style="background: var(--panel-card); border: 1px solid var(--line); padding: 32px; border-radius: 6px; border-left: 4px solid var(--gold); box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 22px; color: var(--gold); margin-bottom: 12px;">“Post Tenebras Lux”</h3>
+        <p style="color: var(--text-muted); font-style: italic; font-size: 15px; margin: 0;">
+          «Tras las tinieblas, la luz». Este lema acuñado durante la Reforma sintetiza el paso de la oscuridad doctrinal hacia la luz del evangelio bíblico revelado en Jesucristo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LAS 5 SOLAS (CARRUSEL) ================= -->
+  <section id="solas" class="solas-section">
+    <div class="wrap">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <span class="eyebrow">Pilares Teológicos</span>
+        <h2 style="font-size: 32px;">Las Cinco Solas</h2>
+        <p style="color: var(--text-muted);">Desliza o usa las flechas para explorar cada pilar, o haz clic en la tarjeta para ver su pasaje bíblico.</p>
+      </div>
+
+      <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="moveSlide(-1)" aria-label="Anterior">&#10094;</button>
+        
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            
+            <div class="sola-slide">
+              <div class="sola-card-carousel" onclick="openModal('scriptura')">
+                <h3>Sola Scriptura</h3>
+                <div class="sola-subtitle">Solo la Escritura</div>
+                <p>La Biblia es la única autoridad inerrante, inspirada y suficiente para la fe y la práctica del creyente.</p>
+                <span class="click-hint">Ver pasaje bíblico →</span>
+              </div>
+            </div>
+
+            <div class="sola-slide">
+              <div class="sola-card-carousel" onclick="openModal('fide')">
+                <h3>Sola Fide</h3>
+                <div class="sola-subtitle">Solo por la Fe</div>
+                <p>La justificación del pecador es recibida únicamente por medio de la fe, sin el mérito de obras humanas.</p>
+                <span class="click-hint">Ver pasaje bíblico →</span>
+              </div>
+            </div>
+
+            <div class="sola-slide">
+              <div class="sola-card-carousel" onclick="openModal('gratia')">
+                <h3>Sola Gratia</h3>
+                <div class="sola-subtitle">Solo por Gracia</div>
+                <p>La salvación es un regalo inmerecido otorgado soberanamente por la sola gracia de Dios.</p>
+                <span class="click-hint">Ver pasaje bíblico →</span>
+              </div>
+            </div>
+
+            <div class="sola-slide">
+              <div class="sola-card-carousel" onclick="openModal('christus')">
+                <h3>Solus Christus</h3>
+                <div class="sola-subtitle">Solo Cristo</div>
+                <p>Jesucristo es el único mediador entre Dios y los hombres para nuestra eterna redención.</p>
+                <span class="click-hint">Ver pasaje bíblico →</span>
+              </div>
+            </div>
+
+            <div class="sola-slide">
+              <div class="sola-card-carousel" onclick="openModal('deo')">
+                <h3>Soli Deo Gloria</h3>
+                <div class="sola-subtitle">Solo a Dios la Gloria</div>
+                <p>Toda la gloria pertenece exclusivamente a Dios tanto en la creación como en la salvación.</p>
+                <span class="click-hint">Ver pasaje bíblico →</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="carousel-btn next" onclick="moveSlide(1)" aria-label="Siguiente">&#10095;</button>
+      </div>
+
+      <div class="carousel-indicators" id="carouselIndicators">
+        <div class="indicator-dot active" onclick="goToSlide(0)"></div>
+        <div class="indicator-dot" onclick="goToSlide(1)"></div>
+        <div class="indicator-dot" onclick="goToSlide(2)"></div>
+        <div class="indicator-dot" onclick="goToSlide(3)"></div>
+        <div class="indicator-dot" onclick="goToSlide(4)"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Ventana Modal Interactiva -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h3 id="modalTitle">Título Sola</h3>
+      <div class="modal-subtitle" id="modalSubtitle">Subtítulo</div>
+      <p id="modalDesc">Descripción extendida de la Sola teológica.</p>
+      <blockquote id="modalVerse">«Versículo bíblico de respaldo»</blockquote>
+    </div>
+  </div>
+
+  <!-- ================= PROGRAMA ================= -->
+  <section id="programa">
+    <div class="wrap">
+      <span class="eyebrow">Agenda del Evento</span>
+      <h2 style="font-size: 32px; margin-bottom: 8px;">Programa de Conferencias</h2>
+      <p style="color: var(--text-muted); margin-bottom: 32px;">
+        Sábado 31 de Octubre · Tres sesiones plenarias y tiempo de compañerismo.
+      </p>
+
+      <div class="agenda-list">
+        
+        <div class="agenda-item">
+          <div class="time">9:00 a.m.</div>
+          <div>
+            <span class="speaker">Expositor: [EDITAR NOMBRE]</span>
+            <h3 style="font-size: 20px; margin-bottom: 6px;">1. [EDITAR TÍTULO DE CONFERENCIA 1]</h3>
+            <p style="color: var(--text-muted); margin: 0;">
+              [EDITAR DESCRIPCIÓN: Breve resumen del tema, pasaje bíblico o enfoque teológico de esta primera sesión].
+            </p>
+          </div>
+        </div>
+
+        <div class="agenda-item agenda-break">
+          <div class="time">10:15 a.m.</div>
+          <div>
+            <span class="break-tag">Receso</span>
+            <h3 style="font-size: 17px; color: var(--text-muted); margin: 0;">Tiempo de café y compañerismo</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="time">10:45 a.m.</div>
+          <div>
+            <span class="speaker">Expositor: [EDITAR NOMBRE]</span>
+            <h3 style="font-size: 20px; margin-bottom: 6px;">2. [EDITAR TÍTULO DE CONFERENCIA 2]</h3>
+            <p style="color: var(--text-muted); margin: 0;">
+              [EDITAR DESCRIPCIÓN: Breve resumen del tema o enfoque de la segunda sesión de la mañana].
+            </p>
+          </div>
+        </div>
+
+        <div class="agenda-item agenda-break">
+          <div class="time">12:00 m.d.</div>
+          <div>
+            <span class="break-tag">Almuerzo</span>
+            <h3 style="font-size: 17px; color: var(--text-muted); margin: 0;">Pausa para el almuerzo congregacional</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="time">1:30 p.m.</div>
+          <div>
+            <span class="speaker">Expositor: [EDITAR NOMBRE]</span>
+            <h3 style="font-size: 20px; margin-bottom: 6px;">3. [EDITAR TÍTULO DE CONFERENCIA 3]</h3>
+            <p style="color: var(--text-muted); margin: 0;">
+              [EDITAR DESCRIPCIÓN: Breve resumen de la conferencia de cierre y plenaria final].
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REGISTRO ================= -->
+  <section id="registro" style="background: var(--panel); border-top: 1px solid var(--line);">
+    <div class="wrap registro-grid">
+      <div>
+        <span class="eyebrow">Asistencia Presencial</span>
+        <h2 style="font-size: 32px; margin-bottom: 14px;">Reserva tu espacio</h2>
+        <p style="color: var(--text-muted);">
+          La entrada es gratuita. Agradecemos tu confirmación previa para planificar adecuadamente los espacios para el Sábado 31 de Octubre.
+        </p>
+      </div>
+
+      <div>
+        <form name="reforma-registro" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="reforma-registro">
+          
+          <div class="field">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" required placeholder="correo@ejemplo.com">
+            </div>
+            <div class="field">
+              <label for="cupos">Cantidad de personas</label>
+              <input type="number" id="cupos" name="cupos" min="1" value="1" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notas">Notas o preguntas (opcional)</label>
+            <textarea id="notas" name="notas" rows="3" placeholder="Restricciones alimentarias, consultas, etc."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Completar Registro</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="brand-line">Conferencia de la Reforma Protestante · Sábado 31 de Octubre</div>
+  <div>Soli Deo Gloria</div>
+</footer>
+
+<script>
+  let currentSlide = 0;
+  const totalSlides = 5;
+
+  function updateCarousel() {
+    const track = document.getElementById('carouselTrack');
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    const dots = document.querySelectorAll('.indicator-dot');
+    dots.forEach((dot, idx) => {
+      if (idx === currentSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  function moveSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) {
+      currentSlide = totalSlides - 1;
+    } else if (currentSlide >= totalSlides) {
+      currentSlide = 0;
+    }
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+  }
+
+  const solasData = {
+    scriptura: {
+      title: "Sola Scriptura",
+      subtitle: "Solo la Escritura",
+      desc: "Afirma que solo las Sagradas Escrituras son la palabra inerrante e inspirada de Dios y constituyen la única regla suprema de fe y conducta para el cristiano, por encima de tradiciones eclesiásticas o concilios.",
+      verse: "«Toda la Escritura es inspirada por Dios y útil para enseñar, para redargüir, para corregir, para instruir en justicia.» — 2 Timoteo 3:16"
+    },
+    fide: {
+      title: "Sola Fide",
+      subtitle: "Solo por la Fe",
+      desc: "Establece que la justificación delante de Dios se recibe únicamente por medio de la fe en Jesucristo. El pecador es declarado justo no por sus méritos ni obras, sino mediante la fe que abraza a Cristo.",
+      verse: "«Justificados, pues, por la fe, tenemos paz para con Dios por medio de nuestro Señor Jesucristo.» — Romanos 5:1"
+    },
+    gratia: {
+      title: "Sola Gratia",
+      subtitle: "Solo por Gracia",
+      desc: "Enfatiza que la salvación es totalmente un regalo inmerecido de Dios. El hombre, estando muerto en sus delitos y pecados, es vivificado soberanamente por el favor inmerecido de la gracia divina.",
+      verse: "«Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe.» — Efesios 2:8-9"
+    },
+    christus: {
+      title: "Solus Christus",
+      subtitle: "Solo Cristo",
+      desc: "Reconoce a Jesucristo como el único Sumo Sacerdote y Mediador entre Dios y la humanidad. Ninguna iglesia, santo o sacramento puede suplir o complementar la obra perfecta consumada por Cristo en la cruz.",
+      verse: "«Porque hay un solo Dios, y un solo mediador entre Dios y los hombres, Jesucristo hombre.» — 1 Timoteo 2:5"
+    },
+    deo: {
+      title: "Soli Deo Gloria",
+      subtitle: "Solo a Dios la Gloria",
+      desc: "Enseña que el propósito supremo de la salvación y de toda la creación es la manifestación de la gloria de Dios. La gloria no pertenece ni a la iglesia ni al hombre, sino exclusivamente al Creador.",
+      verse: "«Si, pues, coméis o bebéis, o hacéis otra cosa, hacedlo todo para la gloria de Dios.» — 1 Corintios 10:31"
+    }
+  };
+
+  function openModal(solaKey) {
+    const data = solasData[solaKey];
+    if (!data) return;
+
+    document.getElementById('modalTitle').innerText = data.title;
+    document.getElementById('modalSubtitle').innerText = data.subtitle;
+    document.getElementById('modalDesc').innerText = data.desc;
+    document.getElementById('modalVerse').innerText = data.verse;
+
+    document.getElementById('modalOverlay').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+  }
+
+  function closeModalOnOverlay(e) {
+    if (e.target.id === 'modalOverlay') {
+      closeModal();
+    }
+  }
+</script>
+
+</body>
+</html>
